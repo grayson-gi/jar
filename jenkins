@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+    stages {
+        stage ('svm') {
+            steps {git 'https://github.com/grayson-gi/jar.git'}
+        }
+        stage ('BUILD') {
+            steps {
+                bat  'mvn clean'
+                bat 'mvn install'
+            }
+        }
+        stage ('Deploy') {
+            steps {bat 'xcpoy /y " C:\\Windows\\ServiceProfiles\\LocalService\\.jenkins\\workspace\\pipedemo\\target\\jar-1.0-SNAPSHOT.jar" "C:\\Program Files\\Apache Software Foundation\\Tomcat 8.5\\webapps"'
+        }
+    }
