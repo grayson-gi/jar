@@ -14,3 +14,5 @@ pipeline {
             steps {bat 'xcpoy /y " C:\\Windows\\ServiceProfiles\\LocalService\\.jenkins\\workspace\\pipedemo\\target\\jar-1.0-SNAPSHOT.jar" "C:\\Program Files\\Apache Software Foundation\\Tomcat 8.5\\webapps"'
         }
     }
+}
+}
